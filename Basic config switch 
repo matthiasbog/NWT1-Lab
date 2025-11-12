@@ -1,0 +1,180 @@
+Building configuration...
+
+Current configuration : 4052 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname S1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$T8LG$DLd0CmDifh1YZ8oU.XyUi/
+!
+username CISCO secret 5 $1$Ob60$MNWMllpABKOAAqJv4jQUI0
+!
+!
+no aaa new-model
+system mtu routing 1500
+no ip domain-lookup
+ip domain-name ccna-lab.com
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-428232704
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-428232704
+ revocation-check none
+ rsakeypair TP-self-signed-428232704
+!
+!
+crypto pki certificate chain TP-self-signed-428232704
+ certificate self-signed 01
+  30820245 308201AE A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 34323832 33323730 34301E17 0D393330 33303130 30303130
+  325A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3432 38323332
+  37303430 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  C2ECAE5C 89DEFDED 9A30B113 CDEA1559 7D0754A1 A195517F 2C41CC6E 48534593
+  838A1581 FE9321B5 08BF634D 169A15A6 A306AC4A 70F9C029 15538F61 2183D85C
+  A2956ED1 D7377455 7EC92708 6F60B17C 9E4B9DEF 4A7634DF 43D1EA46 0EA7DCC1
+  BD4959D0 26588613 74D0F8F2 DD7C818D BB39ADDB E97500F8 E3EBC11D A06C8B83
+  02030100 01A36F30 6D300F06 03551D13 0101FF04 05300301 01FF301A 0603551D
+  11041330 11820F53 312E6363 6E612D6C 61622E63 6F6D301F 0603551D 23041830
+  168014F4 2786BC4E 9B06A103 452DDADB 7B03EDBF 49B67930 1D060355 1D0E0416
+  0414F427 86BC4E9B 06A10345 2DDADB7B 03EDBF49 B679300D 06092A86 4886F70D
+  01010405 00038181 000DB127 07B026AA 0FC01B9A A15E36AD E052F582 416ED866
+  73882812 E137CF45 61269609 61851208 802D48D7 680DF2BE F4107645 FD606780
+  9FEC0E42 E8610E65 43CF783A 4A3A4BE3 6C9F6086 5FF1C04C C29F3ED1 50A326A5
+  B4FF8F52 9EB43C66 86F672F5 B053FC14 9345D1E1 D46FD969 533B5C97 4D4B720B
+  435885F0 0DB16BA3 F6
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 17
+!
+interface FastEthernet0/2
+ switchport access vlan 17
+!
+interface FastEthernet0/3
+ switchport access vlan 17
+!
+interface FastEthernet0/4
+ switchport access vlan 17
+!
+interface FastEthernet0/5
+ switchport access vlan 17
+!
+interface FastEthernet0/6
+ switchport access vlan 17
+!
+interface FastEthernet0/7
+ switchport access vlan 17
+!
+interface FastEthernet0/8
+ switchport access vlan 17
+!
+interface FastEthernet0/9
+ switchport access vlan 17
+!
+interface FastEthernet0/10
+ switchport access vlan 17
+!
+interface FastEthernet0/11
+ switchport access vlan 17
+!
+interface FastEthernet0/12
+ switchport access vlan 17
+!
+interface FastEthernet0/13
+ switchport access vlan 17
+!
+interface FastEthernet0/14
+ switchport access vlan 17
+!
+interface FastEthernet0/15
+ switchport access vlan 17
+!
+interface FastEthernet0/16
+ switchport access vlan 17
+!
+interface FastEthernet0/17
+ switchport access vlan 17
+!
+interface FastEthernet0/18
+ switchport access vlan 17
+!
+interface FastEthernet0/19
+ switchport access vlan 17
+!
+interface FastEthernet0/20
+ switchport access vlan 17
+!
+interface FastEthernet0/21
+ switchport access vlan 17
+!
+interface FastEthernet0/22
+ switchport access vlan 17
+!
+interface FastEthernet0/23
+ switchport access vlan 17
+!
+interface FastEthernet0/24
+ switchport access vlan 17
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan17
+ ip address 192.168.1.20 255.255.255.0
+ ipv6 address 2001:DB8:ACAD:1::20/64
+!
+ip default-gateway 192.168.1.1
+ip classless
+ip http server
+ip http secure-server
+!
+!
+!
+!
+!
+banner motd ^CKein zugriff fuer unbefugte^C
+!
+line con 0
+ password 7 045802150C2E
+ login
+line vty 0 4
+ password 7 030752180500
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ password 7 030752180500
+ login
+ transport input ssh
+!
+end
+
+S1#
