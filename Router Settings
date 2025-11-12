@@ -1,0 +1,283 @@
+R1#show run
+Building configuration...
+
+
+Current configuration : 1713 bytes
+!
+! Last configuration change at 14:55:35 UTC Wed Nov 5 2025
+! NVRAM config last updated at 14:42:47 UTC Wed Nov 5 2025
+! NVRAM config last updated at 14:42:47 UTC Wed Nov 5 2025
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$T2d.$lZVlktzgiulaX25Kbaf1Q0
+!
+no aaa new-model
+!
+memory-size iomem 25
+crypto pki token default removal timeout 0
+!
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+!
+!
+ip cef
+no ip domain lookup
+ip domain name gruppe2.at
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+!
+!
+license udi pid CISCO2801 sn FHK084410WP
+username BENUTZER secret 5 $1$4xju$H2TUpd.7WSMc3g7iLiHp2.
+!
+redundancy
+!
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.3
+ encapsulation dot1Q 3
+ ip address 192.168.3.1 255.255.255.0
+!
+interface FastEthernet0/1.4
+ encapsulation dot1Q 4
+ ip address 192.168.4.1 255.255.255.0
+!
+interface FastEthernet0/1.8
+ encapsulation dot1Q 8 native
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/1/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+banner motd ^C Zugriff nur fuer berechtigte ^C
+!
+line con 0
+ password 7 02050D480809
+ login
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+end
+
+R1# show run
+Building configuration...
+
+
+Current configuration : 1713 bytes
+!
+! Last configuration change at 14:55:35 UTC Wed Nov 5 2025
+! NVRAM config last updated at 14:42:47 UTC Wed Nov 5 2025
+! NVRAM config last updated at 14:42:47 UTC Wed Nov 5 2025
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$T2d.$lZVlktzgiulaX25Kbaf1Q0
+!
+no aaa new-model
+!
+memory-size iomem 25
+crypto pki token default removal timeout 0
+!
+!
+dot11 syslog
+ip source-route
+!
+!
+!
+!
+!
+ip cef
+no ip domain lookup
+ip domain name gruppe2.at
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+!
+!
+license udi pid CISCO2801 sn FHK084410WP
+username BENUTZER secret 5 $1$4xju$H2TUpd.7WSMc3g7iLiHp2.
+!
+redundancy
+!
+!
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1.3
+ encapsulation dot1Q 3
+ ip address 192.168.3.1 255.255.255.0
+!
+interface FastEthernet0/1.4
+ encapsulation dot1Q 4
+ ip address 192.168.4.1 255.255.255.0
+!
+interface FastEthernet0/1.8
+ encapsulation dot1Q 8 native
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/1/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+banner motd ^C Zugriff nur fuer berechtigte ^C
+!
+line con 0
+ password 7 02050D480809
+ login
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+end
+
+R1#
